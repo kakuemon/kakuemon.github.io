@@ -1,7 +1,7 @@
-$(document).ready(function () {
+$(document).ready(function() {
     // liffId: LIFF URL "https://liff.line.me/xxx"のxxxに該当する箇所
     // LINE DevelopersのLIFF画面より確認可能
-    var liffId = "1654150367-Agq5Vdp1";
+    var liffId = "1654302577-yj6Aexbp";
     initializeLiff(liffId);
 })
 
@@ -14,7 +14,7 @@ function initializeLiff(liffId) {
             // Webブラウザからアクセスされた場合は、LINEにログインする
             if (!liff.isInClient() && !liff.isLoggedIn()) {
                 window.alert("LINEアカウントにログインしてください。");
-                liff.login({redirectUri: location.href});
+                liff.login({ redirectUri: location.href });
             }
         })
         .catch((err) => {
@@ -35,9 +35,9 @@ function sendMessages(text) {
     liff.sendMessages([{
         'type': 'text',
         'text': text
-    }]).then(function () {
+    }]).then(function() {
         liff.closeWindow();
-    }).catch(function (error) {
+    }).catch(function(error) {
         window.alert('Failed to send message ' + error);
     });
 }
@@ -47,7 +47,7 @@ function shareTargetPicker(text) {
     liff.shareTargetPicker([{
         'type': 'text',
         'text': text
-    }]).catch(function (error) {
+    }]).catch(function(error) {
         window.alert('Failed to send message ' + error);
     });
 }
